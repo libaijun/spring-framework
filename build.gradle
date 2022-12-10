@@ -260,13 +260,22 @@ configure(allprojects) { project ->
         }
         repositories {
             //新增以下2个阿里云镜像
-            maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-            maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
-            mavenCentral()
+//            maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+//            maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+//            mavenCentral()
+//            maven { url "https://repo.spring.io/libs-spring-framework-build" }
+//            maven { url "https://repo.spring.io/milestone" } // Reactor
+//            //新增spring插件库
+//            maven { url "https://repo.spring.io/plugins-release" }
+//
+//            maven { url "https://maven.aliyun.com/repository/central" }
+
+
+            mavenLocal()
+            maven { url "https://maven.aliyun.com/repository/central"}
             maven { url "https://repo.spring.io/libs-spring-framework-build" }
-            maven { url "https://repo.spring.io/milestone" } // Reactor
-            //新增spring插件库
-            maven { url "https://repo.spring.io/plugins-release" }
+            maven { url "https://repo.spring.io/snapshot" } // Reactor
+            maven { url "https://repo.springsource.org/plugins-release" }
 
         }
     }

@@ -107,7 +107,7 @@ import org.springframework.util.ReflectionUtils;
  * @see #onStartup(Set, ServletContext)
  * @see WebApplicationInitializer
  */
-@HandlesTypes(WebApplicationInitializer.class)
+@HandlesTypes(WebApplicationInitializer.class)	// @HandlersType会把实现了WebApplicationInitializer接口的类全部找到，然后传给onStartup方法的Set<Class<?>> webAppInitializerClasses入参
 public class SpringServletContainerInitializer implements ServletContainerInitializer {
 
 	/**

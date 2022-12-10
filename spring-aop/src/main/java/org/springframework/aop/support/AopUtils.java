@@ -307,7 +307,7 @@ public abstract class AopUtils {
 		}
 		List<Advisor> eligibleAdvisors = new ArrayList<>();
 		for (Advisor candidate : candidateAdvisors) {
-			if (candidate instanceof IntroductionAdvisor && canApply(candidate, clazz)) {
+			if (candidate instanceof IntroductionAdvisor && canApply(candidate, clazz)) {	// Introduction功能
 				eligibleAdvisors.add(candidate);
 			}
 		}

@@ -86,7 +86,7 @@ public abstract class AbstractAnnotationConfigDispatcherServletInitializer
 	 * if creation and registration of a root context is not desired
 	 */
 	@Nullable
-	protected abstract Class<?>[] getRootConfigClasses();
+	protected abstract Class<?>[] getRootConfigClasses();	// 指定父容器的配置类,配置类用@Configuration或者@Component修饰
 
 	/**
 	 * Specify {@code @Configuration} and/or {@code @Component} classes for the
@@ -95,6 +95,6 @@ public abstract class AbstractAnnotationConfigDispatcherServletInitializer
 	 * {@code null} if all configuration is specified through root config classes.
 	 */
 	@Nullable
-	protected abstract Class<?>[] getServletConfigClasses();
+	protected abstract Class<?>[] getServletConfigClasses();	// 指定子容器的配置类,配置类用@Configuration或者@Component修饰
 
 }

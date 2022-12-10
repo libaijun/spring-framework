@@ -15,6 +15,9 @@ dependencies {
     api(project(":spring-core"))
     api(project(":spring-context"))
     api(project(":spring-aop"))
+
+    runtimeOnly('org.aspectj:aspectjweaver:1.9.7')
+    runtimeOnly('org.aspectj:aspectjrt:1.9.7')
 //    compileClasspath(project(":spring-context"))
 //    compileClasspath(project(":spring-beans"))
 //    compileClasspath(project(":spring-core"))
@@ -29,6 +32,10 @@ dependencies {
 //    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
 
-test {
-    useJUnitPlatform()
+//test {
+//    useJUnitPlatform()
+//}
+
+checkstyleMain {
+    enabled = gradle.startParameter.taskNames.contains('checkstyleMain')
 }

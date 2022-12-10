@@ -212,7 +212,7 @@ final class JdkDynamicAopProxy implements AopProxy, InvocationHandler, Serializa
 				MethodInvocation invocation =
 						new ReflectiveMethodInvocation(proxy, target, method, args, targetClass, chain);
 				// Proceed to the joinpoint through the interceptor chain.
-				retVal = invocation.proceed();
+				retVal = invocation.proceed();	// TODO 通过proxyFactory.advisor(),看看before和afterReturn在链路上有没有排序
 			}
 
 			// Massage return value if necessary.

@@ -330,22 +330,25 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 		if (Boolean.FALSE.equals(this.advisedBeans.get(cacheKey))) {
 			return bean;
 		}
+		// Infrastructure 基础设施(Advisor、Advice、PointCut、AopInfrastructureBean)
 		if (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) {
 			this.advisedBeans.put(cacheKey, Boolean.FALSE);
 			return bean;
 		}
 
+		// 1.找beanFactory中Advisor.class的beanName，然后getBean(beanName)创建对应的bean
+		// 2.找beanFactory中Object.class的beanName，然后判断是否有@Aspect，有就遍历method把符合的method创建成Advisor
 		// Create proxy if we have advice.
 		Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
 		if (specificInterceptors != DO_NOT_PROXY) {
-			this.advisedBeans.put(cacheKey, Boolean.TRUE);
+			this.advisedBeans.put(cacheKey, Boolean.TRUE);	// 缓存cacheKey类似beanName,需要创建代理,True代表需要创建代理
 			Object proxy = createProxy(
 					bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
 			this.proxyTypes.put(cacheKey, proxy.getClass());
 			return proxy;
 		}
 
-		this.advisedBeans.put(cacheKey, Boolean.FALSE);
+		this.advisedBeans.put(cacheKey, Boolean.FALSE);	// 缓存beanName不需要代理==False
 		return bean;
 	}
 
