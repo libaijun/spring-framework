@@ -1,5 +1,6 @@
 package com.lbj.service;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,4 +9,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class OrderService {
+	@PostConstruct    // java17已经没有javax.annotation.PostConstruct了，变成jakarta.annotation.PostConstruct了
+	public void init() {
+		System.out.println("===@PostConstruct====");
+	}
 }

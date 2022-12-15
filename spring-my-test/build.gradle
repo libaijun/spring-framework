@@ -18,6 +18,8 @@ dependencies {
 
     runtimeOnly('org.aspectj:aspectjweaver:1.9.7')
     runtimeOnly('org.aspectj:aspectjrt:1.9.7')
+    runtimeOnly('commons-logging:1.2')
+    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
 //    compileClasspath(project(":spring-context"))
 //    compileClasspath(project(":spring-beans"))
 //    compileClasspath(project(":spring-core"))
